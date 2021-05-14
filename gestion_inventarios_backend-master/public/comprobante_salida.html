@@ -1,0 +1,302 @@
+<!-- <!doctype html> -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Template E</title>
+
+    <style>
+      .template-box {
+          display: flex;
+          flex-direction: column;
+          max-width: 1200px;
+          min-height: 90%;
+          margin: auto;
+          padding: 30px;
+          border: 1px solid #eee;
+          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+          font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+          color: #555;
+          align-items: center;
+          justify-content: space-between;
+      }
+      .template-box .logo {
+          width: 15%;
+          padding: 10px;
+      }
+      .template-box .file-data {
+          display: flex;
+          justify-content: space-around;
+          width: 100%;          
+          font-size: 12px;
+          padding: 0;
+          margin: 0;
+          margin: 0 0 10px 0;
+      }
+      .template-box .file-data .official-data {
+          width: 250px;
+          margin: 0;
+      }
+      .template-box .logo-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+      }
+      .template-box table.header-table {
+        width: 65%;
+        margin-bottom: 45px;
+      }
+      .template-box table.data-table {
+        width: 90%;
+        margin-bottom: 20px;
+      }
+      .template-box table.date-table {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+      .template-box table.information-table {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      .template-box table.footer-table {
+        width: 70%;
+      }
+      .template-box table td.title {
+          width: 40%;
+          text-align: center;
+          font-size: 14px;
+          font-weight: bold;
+          padding: 6px;
+      }
+      .template-box table td.text {
+          width: 40%;
+          text-align: center;
+          font-size: 12px;
+          font-weight: bold;
+          padding: 6px;
+      }
+      .template-box table td.table-text {
+          text-align: center;
+          font-size: 11px;
+          font-weight: bolder;
+          padding: 0 3PX;
+      }
+      .template-box table td.table-text-light {
+          background: #fafafa;
+          font-weight: normal;
+          font-size: 11px;
+          font-weight: normal;
+          padding: 0 3PX;
+      }
+      .template-box table td.info {
+          width: 20%;
+          font-size: 12px;
+          font-weight: bold;
+          text-align: center;
+          padding: 6px;
+      }
+      .template-box table td.empty-field-firm {
+          height: 40px;
+      }
+      .template-box table {
+          width: 100%;
+          border-collapse: collapse;    
+      }
+      .template-box td {
+          border: solid 1px rgba(0, 0, 0, .15);
+          background: #f3f3f3;
+      }   
+      .template-box .store-container {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          align-items: center;
+          padding: 5px;
+      }
+      .template-box .store-container .store-manager-name{
+          font-size: 12;
+          font-weight: normal;
+          margin: 0;
+      }
+      .template-box .store-container .store-manager{
+          font-size: 11;
+          font-weight: bolder;
+          margin: 0;
+      }
+      .template-box table td.supervisor-field{
+          font-size: 11;
+          font-weight: normal;
+          margin: 0;
+          padding: 5px;
+      }
+    </style>
+</head>
+
+<body>
+  <div class="template-box">
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <table cellpadding="0" cellspacing="0" class="header-table">
+        <tr>
+          <td class="logo" rowspan="3">
+            <div class="logo-container">
+              <img 
+              src="./images/distrital_logo.jpeg" 
+              alt="Logo" 
+              style="max-width:100px;"
+              >
+            </div>
+          </td>
+          <td class="title">COMPROBANTE DE SALIDA ALMACÉN</td>            
+          <td class="info">Código:  <br/> GIF-PR-003-FR-004</td>
+          <td class="logo" rowspan="3">
+            <div class="logo-container">
+              <img 
+              src="./images/template_logo.PNG" 
+              alt="Logo" 
+              style="width:100px;"
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="text">Macroproceso: Gestión de recursos</td>
+          <td class="info">Versión: 03</td>
+        </tr>
+        <tr>
+          <td class="text">Proceso: Gestión de Infraestructura Física</td>
+          <td class="info">Fecha de Aprobación: 23/03/16</td>
+        </tr>
+      </table>
+
+      <table cellpadding="0" cellspacing="0" class="date-table">
+        <tr>
+          <td class="table-text" style="width: 10%; height: 20px; text-align: center;">Salida:</td>
+          <td class="table-text-light" style="width: 40%;">{{now}}</td>
+          <td class="table-text" style="width: 10%; text-align: center;">Fecha:</td>
+          <td class="table-text-light" style="width: 40%;">{{comprobante.fecha}}</td>
+        </tr>
+        <tr>
+          <td class="table-text" style="width: 10%; height: 20px; text-align: center;">Entrada:</td>
+          <td class="table-text-light" style="width: 40%;">{{comprobante.entrada}}</td>
+          <td class="table-text" style="width: 10%; text-align: center;">Fecha:</td>
+          <td class="table-text-light" style="width: 40%;">{{comprobante.fecha_creacion}}</td>
+        </tr>
+        <tr>
+          <td class="table-text" style="width: 10%; height: 20px; text-align: center;">Factura:</td>
+          <td class="table-text-light" style="width: 40%;">{{comprobante.factura}}</td>
+          <td class="table-text" style="width: 10%; text-align: center;">Fecha:</td>
+          <td class="table-text-light" style="width: 40%;">{{now}}</td>
+        </tr>
+      </table>
+  
+      <table cellpadding="0" cellspacing="0" class="data-table">
+        <tr>
+          <td class="table-text" style="width: 10%; height: 20px; text-align: center;">Sede:</td>
+          <td class="table-text-light" style="width: 23%;">{{bien.sede}}</td>
+          <td class="table-text" style="width: 10%; text-align: center;">Dependencia:</td>
+          <td class="table-text-light" style="width: 23%;">{{bien.dependencia}}</td>
+          <td class="table-text" style="width: 10%; text-align: center;">Ubicación:</td>
+          <td class="table-text-light" style="width: 24%;">{{bien.espacio_fisico}}</td>
+        </tr>
+        <tr>
+          <td class="table-text" style="width: 10%; height: 20px; text-align: center;">Funcionario:</td>
+          <td class="table-text-light" style="width: 23%;">{{usuario.nombres}}</td>
+          <td class="table-text" style="width: 10%; text-align: center;">Cédula:</td>
+          <td class="table-text-light" style="width: 23%;" colspan="3">{{usuario.id}}</td>
+        </tr>
+        <tr>
+          <td class="table-text" style="width: 10%; height: 20px; text-align: center;">Proveedor:</td>
+          <td class="table-text-light" style="width: 23%;" colspan="5">{{comprobante.proveedor}}</td>
+        </tr>
+        <tr>
+          <td class="table-text" style="width: 10%; height: 20px; text-align: center;">Observaciones:</td>
+          <td class="table-text-light" style="width: 23%;" colspan="5">{{comprobante.observaciones}}</td>
+        </tr>
+      </table>
+  
+      <table cellpadding="0" cellspacing="0" class="information-table">
+        <tr style="height: 20px;">
+          <td class="table-text" colspan="12"></td>
+        </tr>
+        <tr>
+          <td class="table-text" style="width: 7%; height: 20px;">GRUPO</td>
+          <td class="table-text" style="width: 7%;">UNIDAD</td>
+          <td class="table-text" style="width: 8%;">CANTIDAD</td>
+          <td class="table-text" style="width: 8%;">TIPO BIEN</td>
+          <td class="table-text" style="width: 6%;">PLACA</td>
+          <td class="table-text" style="width: 10%;">DESCRIPCION</td>
+          <td class="table-text" style="width: 10%;">MARCA-SERIE</td>
+          <td class="table-text" style="width: 10%;">VALOR UNITARIO</td>
+          <td class="table-text" style="width: 8%;">SUBTOTAL</td>
+          <td class="table-text" style="width: 6%;">% IVA</td>
+          <td class="table-text" style="width: 10%;">TOTAL IVA</td>
+          <td class="table-text" style="width: 8%;">TOTAL</td>
+        </tr>
+        <tr>
+          <td class="table-text-light" style="height: 20px; text-align: end;">{{comprobante.grupo}}</td>
+          <td class="table-text-light" style="text-align: center">{{comprobante.unidad}}</td>
+          <td class="table-text-light" style="text-align: center">{{comprobante.cantidad}}</td>
+          <td class="table-text-light" style="text-align: center">{{bien.tipo_bien}}</td>
+          <td class="table-text-light" style="text-align: center">{{bien.placa}}</td>
+          <td class="table-text-light" style="text-align: center">{{bien.descripcion}}</td>
+          <td class="table-text-light" style="text-align: center">{{bien.marca_serie}}</td>
+          <td class="table-text-light" style=" text-align: end">${{comprobante.valor_unitario}}</td>
+          <td class="table-text-light" style="text-align: end">${{comprobante.subtotal}}</td>
+          <td class="table-text-light" style="text-align: end">{{comprobante.iva}}%</td>
+          <td class="table-text-light" style="text-align: end">${{comprobante.total_iva}}</td>
+          <td class="table-text-light" style="text-align: end">${{comprobante.total}}</td>
+        </tr>
+        <tr>
+          <td class="table-text" style="height: 20px; text-align: end;" colspan="2">Total Cantidad</td>
+          <td class="table-text-light" style="text-align: center">{{comprobante.total_cantidad}}</td>
+          <td class="table-text" style="text-align: end" colspan="5">Subtotal Grupo</td>
+          <td class="table-text-light" style="text-align: end">${{comprobante.subtotal_grupo}}</td>
+          <td class="table-text-light" style="text-align: end" colspan="2">$0,00</td>
+          <td class="table-text-light" style="text-align: end">$0,00</td>
+        </tr>
+        <tr>
+          <td class="table-text" style="height: 20px; text-align: end;" colspan="2">TOTAL CANTIDAD SALIDA</td>
+          <td class="table-text" style="text-align: center">1</td>
+          <td class="table-text" style="text-align: end" colspan="5">TOTAL ENTRADA</td>
+          <td class="table-text" style="text-align: end">${{comprobante.total_entrada}}/td>
+          <td class="table-text" style="text-align: end" colspan="2">$0,00</td>
+          <td class="table-text" style="text-align: end">$0,00</td>
+        </tr>
+      </table>
+    </div>
+    <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <table cellpadding="0" cellspacing="0" class="footer-table">
+        <tr>
+          <td class="table-text-light" style="height: 40px;"></td>
+          <td class="table-text-light" style="height: 40px;">{{usuario.id}}</td>
+        </tr>
+        <tr>
+          <td class="table-text-light" style="width: 50%;">
+            <div class="store-container">
+              <p class="store-manager-name">SANDOVAL RAMIREZ VICTOR HUGO</p>
+              <p class="store-manager">Jefe Sección Almacén General e Inventarios</p>
+            </div>
+          </td>
+          <td class="table-text-light" style="width: 50%;">
+            <div class="store-container">
+              <p class="store-manager-name">C.C</p>
+              <p class="store-manager">Funcionario que recibe</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-text-light supervisor-field" colspan="2">Proyectó y Revisó:</td>
+        </tr>
+        <tr style="height: 20px;">
+          <td class="table-text-light" colspan="12" style="text-align: center; font-style: italic;">
+            Solo los bienes de Consumo Controlado y Devolutivo serán cargados a su inventario.
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

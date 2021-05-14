@@ -1,0 +1,110 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "uid",
+				"type": "string"
+			},
+			{
+				"name": "start_date",
+				"type": "string"
+			},
+			{
+				"name": "end_date",
+				"type": "string"
+			},
+			{
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"name": "reason",
+				"type": "string"
+			},
+			{
+				"name": "hash",
+				"type": "string"
+			},
+			{
+				"name": "fk_person",
+				"type": "string"
+			},
+			{
+				"name": "fk_good",
+				"type": "string"
+			},
+			{
+				"name": "hash_ipfs",
+				"type": "string"
+			}
+		],
+		"name": "generateHashVal",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "uid",
+				"type": "string"
+			},
+			{
+				"name": "start_date",
+				"type": "string"
+			},
+			{
+				"name": "end_date",
+				"type": "string"
+			},
+			{
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"name": "reason",
+				"type": "string"
+			},
+			{
+				"name": "hash",
+				"type": "string"
+			},
+			{
+				"name": "fk_person",
+				"type": "string"
+			},
+			{
+				"name": "fk_good",
+				"type": "string"
+			},
+			{
+				"name": "hash_ipfs",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getHash",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
