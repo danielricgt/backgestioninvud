@@ -1,0 +1,170 @@
+<!-- <!doctype html> -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Levantamiento</title>
+
+    <style>
+      .template-box {
+          display: flex;
+          flex-direction: column;
+          max-width: 1200px;
+          min-height: 80%;
+          margin: auto;
+          padding: 30px;
+          border: 1px solid #eee;
+          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+          font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+          color: #555;
+          align-items: center;
+      }
+      .template-box .logo {
+          width: 15%;
+          padding: 10px;
+      }
+      .template-box .file-data {
+          display: flex;
+          justify-content: space-around;
+          width: 100%;          
+          font-size: 12px;
+          padding: 0;
+          margin: 0;
+          margin: 0 0 10px 0;
+      }
+      .template-box .file-data .official-data {
+          width: 250px;
+          margin: 0;
+      }
+      .template-box .description {
+          width: 100%;
+          text-align: start;
+          font-size: 12px;
+          margin: 0 0 20px 0;
+      }
+      .template-box .logo-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+      }
+      .template-box table.header-table {
+        width: 70%;
+        margin-bottom: 60px;
+      }
+      .template-box table.information-table {
+        width: 100%;
+        margin-bottom: 30px;
+      }
+      .template-box table td.title {
+          width: 40%;
+          text-align: center;
+          font-size: 14px;
+          font-weight: bold;
+          padding: 6px;
+      }
+      .template-box table td.text {
+          width: 40%;
+          text-align: center;
+          font-size: 12px;
+          font-weight: bold;
+          padding: 6px;
+      }
+      .template-box table td.table-text {
+          text-align: center;
+          font-size: 12px;
+          font-weight: normal;
+          padding: 6px;
+          margin-bottom: 200px;
+      }
+      .template-box table td.info {
+          width: 20%;
+          font-size: 12px;
+          font-weight: bold;
+          text-align: center;
+          padding: 6px;
+      }
+      .template-box table {
+          width: 100%;
+          border-collapse: collapse;    
+      }
+      .template-box td {
+          border: solid 1px rgba(0, 0, 0, .15);
+      }   
+    </style>
+</head>
+
+<body>
+  <div class="template-box">
+    <table cellpadding="0" cellspacing="0" class="header-table">
+      <tr>
+        <td class="logo" rowspan="3">
+          <div class="logo-container">
+            <!-- src="./images/distrital_logo.jpeg"  -->
+            <img 
+            src="https://www.udistrital.edu.co/themes/custom/versh/images/default/preloader.png"
+            alt="Logo" 
+            style="max-width:100px;"
+            >
+          </div>
+        </td>
+        <td class="title">LEVANTAMIENTO DE INVENTARIOS</td>            
+        <td class="info">Código:  <br/> GIF-PR-003-FR-004</td>
+        <td class="logo" rowspan="3">
+          <div class="logo-container">
+            <!-- src="./images/template_logo.PNG"  -->
+            <img 
+            src="http://autoevaluacionyacreditacion.udistrital.edu.co/sites/default/files/2017-08/sigud_nueva.png" 
+            alt="Logo" 
+            style="width:100px;"
+            >
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="text">Macroproceso: Gestión de recursos</td>
+        <td class="info">Versión: 03</td>
+      </tr>
+      <tr>
+        <td class="text">Proceso: Gestión de Infraestructura Física</td>
+        <td class="info">Fecha de Aprobación: 23/03/16</td>
+      </tr>
+    </table>
+
+    <div class="file-data">
+      <p class="official-data">NOMBRE FUNCIONARIO: {{usuario.nombre}}</p>
+      <p class="official-data">CC: {{usuario.id}}</p>
+    </div>
+
+    <p class="description">TIPO DE BIEN CONSUMO CONTROLADO</p>
+
+    <table cellpadding="0" cellspacing="0" class="information-table">
+      <tr>
+        <td class="table-text" style="width: 10%; height: 35px;">Placa</td>
+        <td class="table-text" style="width: 10%;">Sede</td>
+        <td class="table-text" style="width: 10%;">Dependencia</td>
+        <td class="table-text" style="width: 10%;">Espacio Físico</td>
+        <td class="table-text" style="width: 20%;">Descripción</td>
+        <td class="table-text" style="width: 15%;">Marca y Serie</td>
+        <td class="table-text" style="width: 5%;">Estado</td>
+        <td class="table-text" style="width: 10%;">Responsable del Bien</td>
+        <td class="table-text" style="width: 10%;">Verificaciòn</td>
+      </tr>
+      {{#each items}}
+      <tr>
+        <td class="table-text" style="width: 10%; height: 20px;">{{placa}}</td>
+        <td class="table-text" style="width: 10%;">{{sede}}</td>
+        <td class="table-text" style="width: 10%;">{{dependencia}}</td>
+        <td class="table-text" style="width: 10%;">{{espacio_fisico}}</td>
+        <td class="table-text" style="width: 20%;">{{descripcion}}</td>
+        <td class="table-text" style="width: 15%;">{{marca_serie}}</td>
+        <td class="table-text" style="width: 5%;">{{estado_bien}}</td>
+        <td class="table-text" style="width: 10%;">{{responsable}}</td>
+        <td class="table-text" style="width: 10%;">{{verificacion}}</td>
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+</body>
+
+</html>

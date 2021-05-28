@@ -1,0 +1,191 @@
+<!-- <!doctype html> -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Baja bien</title>
+
+    <style>
+      .template-box {
+          max-width: 800px;
+          min-height: 80%;
+          margin: auto;
+          padding: 30px;
+          border: 1px solid #eee;
+          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+          font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+          color: #555;
+      }
+      .template-box table.header-table {
+        margin-bottom: 15px;
+      }
+      .template-box table.responsable-table {
+        margin-bottom: 18px;
+      }
+      .template-box table.tangible-table {
+        margin-bottom: 40px;
+      }
+      .template-box .empty {
+          width: 15%;
+      }
+      .template-box .header-background {
+        background: #cdcac5;
+      }
+      .template-box table td.title {
+          width: 45%;
+          text-align: center;
+          font-size: 14px;
+          font-weight: bold;
+          padding: 6px;
+      }
+      .template-box table td.responsable-title {
+          text-align: left;
+          font-size: 12px;
+          font-weight: bolder;
+          /* padding: 10px 0 0 5px; */
+          padding: 6px;
+      }
+      .template-box table td.text {
+          width: 45%;
+          text-align: center;
+          font-size: 12px;
+          font-weight: normal;
+          padding: 6px;
+      }
+      .template-box table td.info {
+          width: 15%;
+          font-size: 12px;
+          font-weight: normal;
+          padding: 6px;
+      }
+      .template-box .logo {
+          width: 15%;
+          padding: 10px;
+      }
+      .template-box table {
+          width: 100%;
+          border-collapse: collapse;    
+      }
+      .template-box td {
+          border: solid 1px black; 
+      }
+      .template-box .extra-info {
+        display: flex;
+        padding: 0 !important;
+      }
+      .template-box .extra-info-final {
+        display: flex;
+        flex-direction: column;
+        padding: 0 !important;
+      }
+      .template-box .extra-fields {
+        padding: 0 !important;
+        margin: 0 0 5px 0;
+        font-size: 12px;
+        font-weight: 500;
+      }      
+    </style>
+</head>
+
+<body>
+  <div class="template-box">
+    <table cellpadding="0" cellspacing="0" class="header-table">
+      <tr>
+        <td class="empty" rowspan="3">
+        <td class="title">SOLICITUD BAJA DE BIEN TANGIBLE</td>            
+        <td class="info">Código:  <br/> GIF-PR-001-FR-001</td>
+        <td class="logo" rowspan="3">
+          <!-- src="./images/template_logo.PNG" -->
+          <img 
+          src="http://autoevaluacionyacreditacion.udistrital.edu.co/sites/default/files/2017-08/sigud_nueva.png"  
+          alt="Logo" 
+          style="width:100%; max-width:100px;"
+          >
+        </td>
+      </tr>
+      <tr>
+        <td class="text">Macroproceso: Gestión de recursos</td>
+        <td class="info">Versión: 03</td>
+      </tr>
+      <tr>
+        <td class="text">Proceso: Gestión de Infraestructura Física</td>
+        <td class="info">Fecha de Aprobación: 30/06/17</td>
+      </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" class="responsable-table">
+      <tr>
+        <td class="responsable-title header-background" colspan="2">RESPONSABLE QUE ENTREGA</td>
+      </tr>
+      <tr>
+        <td class="text" style="text-align: left;">NOMBRE: {{usuario.nombre}}</td>
+        <td class="text" style="text-align: left;">C.C: {{usuario.id}}</td>
+      </tr>
+      <tr>
+        <td class="text" style="text-align: left;">CARGO: {{usuario.cargo}}</td>
+        <td class="text" style="text-align: left;">DEPENDENCIA: {{usuario.dependencia}}</td>
+      </tr>
+    </table>
+    <div class="extra-info" style="margin-bottom: 20px;">
+      <p class="extra-fields">Ciudad: Bogotà</p>
+      <p class="extra-fields" style="margin-left: 10px;">Fecha: {{now}}</p>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" class="tangible-table">
+      <tr>
+        <td class="text" style="font-weight: bold;" colspan="4">Bienes tangibles</td>
+      </tr>
+      <tr>
+        <td class="text" style="width: 20%; height: 28px;">Placa del bien</td>
+        <td class="text" style="width: 10%;">Cantidad</td>
+        <td class="text" style="width: 50%;">Descripcion</td>
+        <td class="text" style="width: 20%;">Observaciones</td>
+      </tr>
+      {{#each items}}
+      <tr>
+        <td class="text" style="width: 20%; height: 28px;">{{placa}}</td>
+        <td class="text" style="width: 10%;">{{cantidad}}</td>
+        <td class="text" style="width: 50%;">{{descripcion}}</td>
+        <td class="text" style="width: 20%;">{{observaciones}}</td>
+      </tr>
+      {{/each}}
+      <!-- <tr>
+        <td class="text" style="width: 20%; height: 28px;"></td>
+        <td class="text" style="width: 10%;"></td>
+        <td class="text" style="width: 50%;"></td>
+        <td class="text" style="width: 20%;"></td>
+      </tr>
+      <tr>
+        <td class="text" style="width: 20%; height: 28px;"></td>
+        <td class="text" style="width: 10%;"></td>
+        <td class="text" style="width: 50%;"></td>
+        <td class="text" style="width: 20%;"></td>
+      </tr>
+      <tr>
+        <td class="text" style="width: 20%; height: 28px;"></td>
+        <td class="text" style="width: 10%;"></td>
+        <td class="text" style="width: 50%;"></td>
+        <td class="text" style="width: 20%;"></td>
+      </tr>
+      <tr>
+        <td class="text" style="width: 20%; height: 28px;"></td>
+        <td class="text" style="width: 10%;"></td>
+        <td class="text" style="width: 50%;"></td>
+        <td class="text" style="width: 20%;"></td>
+      </tr>
+      <tr>
+        <td class="text" style="width: 20%; height: 28px;"></td>
+        <td class="text" style="width: 10%;"></td>
+        <td class="text" style="width: 50%;"></td>
+        <td class="text" style="width: 20%;"></td>
+      </tr> -->
+    </table>
+    <div class="extra-info-final" style="margin-bottom: 20px;">
+      <p class="extra-fields">Funcionario que entrega: {{usuario.nombres}}</p>
+      <p class="extra-fields">Vo.Bo. Almacenista general: {{usuarioDestino.nombres}}</p>
+    </div>
+    <p class="extra-fields">NOTA:</p>
+  </div>
+</body>
+
+</html>
