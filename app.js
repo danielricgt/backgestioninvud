@@ -1,12 +1,12 @@
 'use strict'
 const express = require('express');
 const morgan = require('morgan');
-app.use(morgan('dev'));
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 require('dotenv/config');
-app.use(cors())
+app.use(cors());
+app.use(morgan('dev'));
 
 var port = process.env.PORT || 4000;
 
