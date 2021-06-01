@@ -1,5 +1,7 @@
 'use strict'
 const express = require('express');
+const morgan = require('morgan');
+app.use(morgan('dev'));
 const cors = require('cors')
 const app = express();
 const bodyParser = require('body-parser');
