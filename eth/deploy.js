@@ -13,7 +13,7 @@ module.exports.deploy = async (bytecode, abi, contractName) => {
 
         const result = await new web3.eth.Contract(abi)
         .deploy({data: bytecode})
-        .send({from: accounts[0], gas: '3000000'})
+        .send({from: accounts[0], gas: '6000000'})
         console.log(`Contract address ${result.options.address}`);
 
         const serialised = circularJSON.stringify(result.options);
