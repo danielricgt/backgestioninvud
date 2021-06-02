@@ -48,7 +48,7 @@ async function createHashBien(data, contract) {
     const {placa, descripcion, espacio_fisico, sede, marca_serie, estado, responsable, id_responsable} = data;
     const accounts = await web3.eth.getAccounts();
     let transaction = await contract.methods.generateHashVal(placa, descripcion, espacio_fisico, sede, marca_serie, estado, responsable, id_responsable)
-    .send({ from: accounts[0], gas: 500000 });
+    .send({ from: accounts[0], gas: 5000000 });
     const hashGood = await getHashBien(contract);
     return {hashGood, txIdGood: transaction.transactionHash};
   } catch (error) {
@@ -66,7 +66,7 @@ async function createHashProceso(data, contract) {
     const {id_procedimiento, fecha, descripcion, procedimiento, id_responsable, responsable, placa, hash_ipfs} = data;
     const accounts = await web3.eth.getAccounts();
     let transaction = await contract.methods.generateHashVal(id_procedimiento, fecha, descripcion, procedimiento, id_responsable, responsable, placa, hash_ipfs)
-    .send({ from: accounts[0], gas: 500000 })
+    .send({ from: accounts[0], gas: 5000000 })
     const hashProcess = await getHashProcesos(contract);
     return {hashProcess, txIdProcess: transaction.transactionHash};
   } catch (error) {
