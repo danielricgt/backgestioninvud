@@ -179,7 +179,8 @@ const generateDocument = async(data, template, fileName, vertical = false) => {
     height = '11.7in';
   }
   try {
-    const browser = await pup.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    //const browser = await pup.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    const browser = await pup.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     const page = await browser.newPage();
     const content = await compile(template, data);
 
