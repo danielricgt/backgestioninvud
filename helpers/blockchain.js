@@ -40,13 +40,13 @@ function smartContract(contract) {
 }
 
 async function getHashBien(contract) {
-  try{
-  return await contract.methods.getHash().call();
-
-}
-catch (error){
-  console.log(error);
-}
+  try {
+    return await contract.methods.getHash().call();
+  } catch (error) {
+    console.log('get hash bien error');
+    console.log(error);
+    return '';
+  }
 }
 
 async function createHashBien(data, contract) {
@@ -58,18 +58,20 @@ async function createHashBien(data, contract) {
     const hashGood = await getHashBien(contract);
     return {hashGood, txIdGood: transaction.transactionHash};
   } catch (error) {
-    console.error;
+    console.log('crear hash bien error');
+    console.error(error);
     return {hashGood: '', txIdGood: ''};
   }
 }
 
 async function getHashProcesos(contract) {
-  try{
-  return await contract.methods.getHash().call();
-}
-catch (error){
-  console.log(error);
-}
+  try {
+    return await contract.methods.getHash().call();
+  } catch (error) {
+    console.log('get hash proceso error');
+    console.log(error);
+    return '';
+  }
 }
 
 async function createHashProceso(data, contract) {
@@ -81,7 +83,8 @@ async function createHashProceso(data, contract) {
     const hashProcess = await getHashProcesos(contract);
     return {hashProcess, txIdProcess: transaction.transactionHash};
   } catch (error) {
-    console.error;
+    console.log('crear hash proceso error');
+    console.error(error);
     return {hashProcess: '', txIdProcess: ''};
   }
 }
