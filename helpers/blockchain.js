@@ -40,7 +40,13 @@ function smartContract(contract) {
 }
 
 async function getHashBien(contract) {
+  try{
   return await contract.methods.getHash().call();
+
+}
+catch (error){
+  console.log(error);
+}
 }
 
 async function createHashBien(data, contract) {
@@ -58,7 +64,12 @@ async function createHashBien(data, contract) {
 }
 
 async function getHashProcesos(contract) {
+  try{
   return await contract.methods.getHash().call();
+}
+catch (error){
+  console.log(error);
+}
 }
 
 async function createHashProceso(data, contract) {
